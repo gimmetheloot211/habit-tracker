@@ -1,0 +1,544 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap'); 
+
+:root {
+    --primary: aquamarine;
+    --error: #e7195a;
+
+    --g10: rgb(80, 141, 80);
+    --g20: rgb(70, 141, 70);
+    --g30: rgb(60, 141, 60);
+    --g40: rgb(50, 141, 50);
+    --g50: rgb(40, 141, 40);
+    --g60: rgb(30, 141, 30);
+    --g70: rgb(20, 141, 20);
+    --g80: rgb(10, 141, 10);
+    --g90: rgb(0, 141, 0);
+
+    --r10: rgb(141, 80, 80);
+    --r20: rgb(141, 70, 70);
+    --r30: rgb(141, 60, 60);
+    --r40: rgb(141, 50, 50);
+    --r50: rgb(141, 40, 40);
+    --r60: rgb(141, 30, 30);
+    --r70: rgb(141, 20, 20);
+    --r80: rgb(141, 10, 10);
+    --r90: rgb(141, 0, 0);
+}
+
+.imbalance-positive-10 { background-color: var(--g10); }
+.imbalance-positive-20 { background-color: var(--g20); }
+.imbalance-positive-30 { background-color: var(--g30); }
+.imbalance-positive-40 { background-color: var(--g40); }
+.imbalance-positive-50 { background-color: var(--g50); }
+.imbalance-positive-60 { background-color: var(--g60); }
+.imbalance-positive-70 { background-color: var(--g70); }
+.imbalance-positive-80 { background-color: var(--g80); }
+.imbalance-positive-90 { background-color: var(--g90); }
+
+.imbalance-negative-10 { background-color: var(--r10); }
+.imbalance-negative-20 { background-color: var(--r20); }
+.imbalance-negative-30 { background-color: var(--r30); }
+.imbalance-negative-40 { background-color: var(--r40); }
+.imbalance-negative-50 { background-color: var(--r50); }
+.imbalance-negative-60 { background-color: var(--r60); }
+.imbalance-negative-70 { background-color: var(--r70); }
+.imbalance-negative-80 { background-color: var(--r80); }
+.imbalance-negative-90 { background-color: var(--r90); }
+
+body {
+    background: #f1f1f1;
+    margin: 0;
+    font-family: "Poppins", sans-serif, Arial;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20vh; 
+    font-size: 2em;
+    color: #333;
+    font-family: "Poppins", sans-serif, Arial;
+    background-color: #f1f1f1;
+    height: 100vh;
+    animation: pulse 1.5s infinite;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 5px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif, Arial;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.navbar-links a,
+.logout {
+    display: inline-block; 
+    vertical-align: middle; 
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    background-color: #555;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.logout {
+    background: none;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif, Arial;
+    font-size: 16px;
+    margin: 0 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.logout:hover {
+    background-color: #555;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    z-index: 1000;
+}
+
+.dropdown-toggle {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin-left: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+    background-color: #555;
+}
+
+/* Dropdown menu */
+.dropdown-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    right: 0; 
+    margin-top: 5px; 
+}
+
+.dropdown-list.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-list li {
+    padding: 5px 20px;
+    text-align: left;
+}
+
+.dropdown-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+}
+
+.dropdown-list li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+
+
+
+label, input {
+    display: block;
+}
+
+input {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form button {
+    background: #000000;
+    color: #fff;
+    padding: 10px;
+    font-family: "Poppins";
+    font-size: 1em;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div.error {
+    padding: 10px;
+    background: #ffefef;
+    border: 1px solid var(--error);
+    color: var(--error);
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+input.error {
+    border: 1px solid var(--error);
+}
+
+form.signup, form.login {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.userInitialization {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0; 
+    border-left: 4px solid #000000; 
+    color: #333; 
+    font-size: 1.1em; 
+    font-family: "Poppins", sans-serif;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* WeekDetails */
+
+.table-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: 600;
+}
+
+td input {
+    width: 90%;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f4f4f4;
+    z-index: 1;
+}
+
+tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.date {
+    padding: 5px; 
+    font-size: 0.9em;
+    line-height: 1.2; 
+    white-space: nowrap; 
+}
+
+.no-habits {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 4px;
+}
+
+.week-status {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.status-button {
+    padding: 10px 20px; 
+    font-size: 16px; 
+    font-weight: 500; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.status-button.edit {
+    background-color: rgb(30, 117, 231); 
+    color: white; 
+}
+
+.status-button.done {
+    background-color: rgb(13, 216, 13); 
+    color: white; 
+}
+
+.status-button:hover {
+    opacity: 0.8; 
+}
+
+
+
+
+/* YearWeeks */
+
+.yearWeeks {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); 
+    gap: 15px; 
+    justify-items: center;
+    margin: 20px;
+    padding: 10px; 
+}
+
+.weekNumber {
+    text-align: center; 
+    font-size: 2em; 
+    color: #333; 
+    font-weight: bold;
+}
+
+.weekNumber a {
+    text-decoration: none;
+    color: inherit; 
+}
+
+.doneWeek {
+    color: #4CAF50;
+}
+
+.yearWeeks .currentWeek {
+    color: #1a9cb3;
+    font-weight: bold;
+}
+
+
+
+
+/* Habits */
+.habits {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 20px;
+    margin: 40px 20px 20px 20px;
+    width: 55%; 
+    float: left; 
+}
+
+.habitDetails {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.habitDetails h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.7em;
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.habitDetails p {
+    margin: 0;
+    font-size: 1.3em;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.habitDetails .material-symbols-outlined {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #e7195a;
+    transition: color 0.2s ease;
+}
+
+.habitDetails .material-symbols-outlined:hover {
+    color: #ff4c4c; 
+}
+
+/* HabitCreation */
+.habitCreation {
+    max-width: 380px; 
+    padding: 25px; 
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    float: right; 
+    width: 30%; 
+    margin-right: 50px; 
+    margin-top: 40px; 
+}
+
+.habitCreation form {
+    display: flex;
+    flex-direction: column;
+}
+
+.habitCreation label {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.habitCreation input {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.habitCreation button {
+    background: #000000;
+    color: #fff;
+    padding: 10px;
+    font-family: "Poppins";
+    font-size: 1em;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    width: 200px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.habitCreation button:hover {
+    background-color: #333;
+    border: 2px solid #333;
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.useless {
+    background-color: white;
+    border: white;
+}
+
+
+
+/* Home page*/
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; 
+    background-color: #f9f9f9;
+}
+
+.welcome {
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.quote {
+    font-size: 1.5em;
+    font-style: italic;
+    color: #555;
+    background-color: #ffffff;
+    padding: 20px;
+    border-left: 5px solid #333; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+
+.quote-author {
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #777;
+}
