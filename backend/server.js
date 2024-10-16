@@ -9,7 +9,7 @@ const weekRoutes = require('./routes/weekRoutes');
 
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:3000"
+	origin: `http://localhost:${process.env.FPORT}`
 }))
 
 app.use('/api/accounts', userRoutes);
@@ -17,5 +17,5 @@ app.use('/api/habits', habitRoutes);
 app.use('/api/weeks', weekRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
-    .then(res => app.listen(process.env.PORT, () => console.log(`Listening on port ${process.env.PORT}`)))
-    .catch(err => console.log(err))
+	.then(res => app.listen(process.env.BPORT, () => console.log(`Listening on port ${process.env.BPORT}`)))
+	.catch(err => console.log(err))

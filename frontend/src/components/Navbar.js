@@ -23,7 +23,7 @@ const Navbar = () => {
 	const hideDropdownMenu = (e) => {
 		e.preventDefault();
 		setShowDropdown(false);
-	  };
+	};
 
 	return (  
 		<header className='navbar'>
