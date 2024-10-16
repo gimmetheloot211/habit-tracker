@@ -66,7 +66,7 @@ const updateWeekData = async (req, res) => {
 				if (weeklyData.days[day]) {
 					if (updatedDays[day].minutesDoneToday !== undefined) {
 						if (updatedDays[day].minutesDoneToday < 0) {
-							return res.status(400).json({ error: `Activity time for ${day} cannot be negative`})
+							return res.status(400).json({ error: `Activity time for ${day} cannot be negative`});
 						}
 						weeklyData.days[day].minutesDoneToday = updatedDays[day].minutesDoneToday; 
 						weeklyData.days[day].dailyImbalance = weeklyData.days[day].minutesDoneToday - weeklyData.dailyGoal;
@@ -103,7 +103,7 @@ const getWeeks = async (req, res) => {
 	const { year } = req.params;
 
 	if (!year || isNaN(year) || year.toString().length !== 4) {
-		return res.status(400).json({ error: "Page not found"})
+		return res.status(400).json({ error: "Page not found"});
 	}
 
 	try {
@@ -129,9 +129,9 @@ const getWeek = async (req, res) => {
 	const weekID = req.params.id;
 
 	try {
-		const userID = req.user._id
+		const userID = req.user._id;
 		const week = await Week.findOne({ userID, weekID })
-			.populate({ path: 'weekData' })
+			.populate({ path: 'weekData' });
 
 		if (!week) {
 			return res.status(404).json({error: "Week not found"});
@@ -139,7 +139,7 @@ const getWeek = async (req, res) => {
 
 		res.status(200).json(week);
 	} catch (error) {
-		res.status(500).json({ error: error.message })
+		res.status(500).json({ error: error.message });
 	}
 }
 
@@ -161,7 +161,7 @@ const updateWeek = async (req, res) => {
 		week.description = description !== null ? description : week.description;
 
 		const updatedWeek = await week.save();
-		await updatedWeek.populate({ path: 'weekData'})
+		await updatedWeek.populate({ path: 'weekData'});
 
 		return res.status(200).json(updatedWeek);
 	} catch (error) {

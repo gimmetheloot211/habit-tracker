@@ -67,3 +67,4 @@ weekSchema.virtual('weekNumber').get(function(){
 weekSchema.set('toJSON', { virtuals: true });
 
 module.exports = mongoose.model('Week', weekSchema);
+

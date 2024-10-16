@@ -46,3 +46,4 @@ habitSchema.post('findOneAndDelete', async function(habit) {
 })
 
 module.exports = mongoose.model('Habit', habitSchema);
+

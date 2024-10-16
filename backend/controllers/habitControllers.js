@@ -16,7 +16,7 @@ const getAllHabits = async (req, res) => {
 }
 
 const createHabit = async (req, res) => {
-	const { activity, totalMinutesDone = 0 } = req.body
+	const { activity, totalMinutesDone = 0 } = req.body;
 
 	if (!activity || typeof activity !== 'string') {
 		return res.status(400).json({ error: "Invalid or missing activity" });
@@ -27,7 +27,7 @@ const createHabit = async (req, res) => {
 	}
 
 	if (activity.length > 20) {
-		return res.status(400).json({ error: "Activity name is too long"})
+		return res.status(400).json({ error: "Activity name is too long"});
 	}
 
 	if (totalMinutesDone < 0 || typeof totalMinutesDone !== "number") {
@@ -83,7 +83,7 @@ const getHabit = async (req, res) => {
 	
 		res.status(200).json(habit);
 	} catch (error) {
-		res.status(500).json({ error: error.message })
+		res.status(500).json({ error: error.message });
 	}
 }
 
@@ -106,7 +106,7 @@ const deleteHabit = async (req, res) => {
 	
 		res.status(200).json(habit);
 	} catch (error) {
-		res.status(500).json({ error: error.message })
+		res.status(500).json({ error: error.message });
 	}
 }
 
