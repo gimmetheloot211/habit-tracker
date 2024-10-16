@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap'); 
 
+
+/* Imbalance colors for WeekDetails */
 :root {
     --primary: aquamarine;
     --error: #e7195a;
@@ -45,12 +47,17 @@
 .imbalance-negative-80 { background-color: var(--r80); }
 .imbalance-negative-90 { background-color: var(--r90); }
 
+
+
+
+
 body {
     background: #f1f1f1;
     margin: 0;
     font-family: "Poppins", sans-serif, Arial;
 }
 
+/* Loading screen */
 .loading {
     display: flex;
     justify-content: center;
@@ -64,6 +71,9 @@ body {
     animation: pulse 1.5s infinite;
 }
 
+
+
+/* Navbar */
 .navbar {
     background-color: #333;
     color: white;
@@ -144,7 +154,6 @@ body {
     background-color: #555;
 }
 
-/* Dropdown menu */
 .dropdown-list {
     list-style: none;
     margin: 0;
@@ -185,7 +194,7 @@ body {
 
 
 
-
+/* Forms (Login, Signup, Habit creation */
 label, input {
     display: block;
 }
@@ -377,6 +386,9 @@ tbody tr {
     color: #333; 
     font-weight: bold;
 }
+.weekNumber:hover {
+    font-size: 1.8em;
+}
 
 .weekNumber a {
     text-decoration: none;
@@ -443,7 +455,6 @@ tbody tr {
     color: #ff4c4c; 
 }
 
-/* HabitCreation */
 .habitCreation {
     max-width: 380px; 
     padding: 25px; 
@@ -542,3 +553,6 @@ tbody tr {
     margin-top: 10px;
     color: #777;
 }
+
+
+
