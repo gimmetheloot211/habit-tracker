@@ -17,11 +17,15 @@ progress over time.
 ```bash
 git clone https://github.com/gimmetheloot211/habit-tracker.git
 ```
-2. Install dependencies
+2. Open a terminal and cd into the frontend folder
 ```bash
 npm install
 ```
-3. Set up env file in backend:
+3. Open a terminal and cd into the backend folder
+```bash
+npm install
+```
+4. Set up env file in backend:
 ```env
 #.env file example
 BPORT=(Your backend port)
@@ -29,22 +33,21 @@ FPORT=(Your frontend port)
 MONGO_URI=(Your MongoDB database key)
 SECRET=(Your JWT secret)
 ```
-4. Set up env file in frontend:
+5. Set up env file in frontend:
 ```env
 #Get your API key from api-ninjas.com
 REACT_APP_API_KEY=(Your API key)
 ```
-5. Open a terminal to run the backend server
+6. Run the backend server
 ```bash
-cd backend
 npm run dev
 ```
-6. Open a terminal to run the frontend server
+7. Run the frontend server
 ```bash
 cd frontend
 npm run start
 ```
-7. Navigate to your localhost server in the browser (e.g. ***http://localhost:3000***)
+8. Navigate to your localhost server in the browser (e.g. ***http://localhost:3000***)
 
 ### Future Improvements
 I plan to improve the UI in the future and add charts to visualize progress over time. I'm relatively
