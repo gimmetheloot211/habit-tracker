@@ -17,36 +17,21 @@ progress over time.
 ```bash
 git clone https://github.com/gimmetheloot211/habit-tracker.git
 ```
-2. Open a terminal and cd into the frontend folder to install dependencies
-```bash
-npm install
-```
-3. Open a terminal and cd into the backend folder to install dependencies
-```bash
-npm install
-```
-4. Set up env file in backend:
+
+2. Set up env file in backend:
 ```env
 #.env file example
-BPORT=(Your backend port)
-FPORT=(Your frontend port)
+#Get your API key from api-ninjas.com
 MONGO_URI=(Your MongoDB database key)
 SECRET=(Your JWT secret)
+API_NINJA_KEY=(Your API key)
 ```
-5. Set up env file in frontend:
-```env
-#Get your API key from api-ninjas.com
-REACT_APP_API_KEY=(Your API key)
-```
-6. Run the backend server
+
+3. Build and run the app using Docker 
 ```bash
-npm run dev
+docker-compose up --build
 ```
-7. Run the frontend server
-```bash
-npm run start
-```
-8. Navigate to your localhost server in the browser (e.g. ***http://localhost:3000***)
+4. Navigate to your localhost server in the browser (e.g. ***http://localhost:3000***)
 
 ### Future Improvements
 I plan to improve the UI in the future and add charts to visualize progress over time. I'm relatively
