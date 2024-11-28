@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useAuthContext } from './useAuthContext';
+import { useState } from "react";
+import { useAuthContext } from "./useAuthContext";
 
 export const useSignup = () => {
   const [error, setError] = useState(null);
@@ -10,12 +10,12 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
 
-    const body = JSON.stringify({username, password})
+    const body = JSON.stringify({ username, password });
     console.log(body);
-    const response = await fetch('http://localhost:4000/api/accounts/signup', {
+    const response = await fetch("http://localhost:4000/api/accounts/signup", {
       method: "POST",
-      headers: {'Content-Type': 'application/json'},
-      body
+      headers: { "Content-Type": "application/json" },
+      body,
     });
     const json = await response.json();
 
@@ -24,12 +24,12 @@ export const useSignup = () => {
       setError(json.error);
     }
     if (response.ok) {
-      localStorage.setItem('user', JSON.stringify(json));
-      dispatch({type: 'LOGIN', payload: json})
+      localStorage.setItem("user", JSON.stringify(json));
+      dispatch({ type: "LOGIN", payload: json });
 
       setIsLoading(false);
     }
-  }
+  };
 
-  return { signup, isLoading, error};
-}
+  return { signup, isLoading, error };
+};
